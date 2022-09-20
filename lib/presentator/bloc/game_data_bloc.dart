@@ -20,7 +20,7 @@ class GameDataBloc extends Bloc<GameDataEvent, GameDataState> {
         emit(GameDataLoadingState());
         List<Game>? apiResult = await apiService.fetchData();
         if (apiResult == null) {
-          emit(GameDataErrorState("Erro na conexão"));
+          emit(const GameDataErrorState("Erro na conexão"));
         } else {
           emit(GameDataLoadedState(api_result: apiResult));
         }
