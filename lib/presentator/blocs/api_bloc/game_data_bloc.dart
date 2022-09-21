@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 
 import 'package:projeto_api_bloc/infra/service/api_service.dart';
 
-import '../../domain/models/game.dart';
+import '../../../domain/models/game.dart';
 
 part 'game_data_event.dart';
 part 'game_data_state.dart';

@@ -1,14 +1,4 @@
-// To parse this JSON data, do
-//
-//     final game = gameFromJson(jsonString);
-
 import 'dart:convert';
-
-List<Game> gameFromJson(String str) =>
-    List<Game>.from(json.decode(str).map((x) => Game.fromJson(x)));
-
-String gameToJson(List<Game> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Game {
   Game({
@@ -43,6 +33,9 @@ class Game {
   String gamerpowerUrl;
   String openGiveaway;
 
+  List<Game> gameFromJson(String str) =>
+      List<Game>.from(json.decode(str).map((x) => Game.fromJson(x)));
+
   factory Game.fromJson(Map<String, dynamic> json) => Game(
         id: json["id"],
         title: json["title"],
@@ -59,21 +52,4 @@ class Game {
         gamerpowerUrl: json["gamerpower_url"],
         openGiveaway: json["open_giveaway"],
       );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "title": title,
-        "worth": worth,
-        "thumbnail": thumbnail,
-        "image": image,
-        "description": description,
-        "instructions": instructions,
-        "open_giveaway_url": openGiveawayUrl,
-        "published_date": publishedDate.toString(),
-        "platforms": platforms,
-        "end_date": endDate,
-        "users": users,
-        "gamerpower_url": gamerpowerUrl,
-        "open_giveaway": openGiveaway,
-      };
 }
